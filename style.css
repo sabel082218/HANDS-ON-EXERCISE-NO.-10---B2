@@ -1,0 +1,110 @@
+* {
+    box-sizing: border-box;
+    margin: 0%;
+    padding: 0%;
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+.container{
+    display: grid;
+    grid-template-areas: 
+     "site-title site-title nav1 nav2 nav3"
+    "post-title post-title post-title post-title post-title"
+    "post-meta main-content main-content side-bar side-bar"
+    "post-meta main-content-image main-content-image ads ads"
+    "other-stuffs other-stuffs other-stuffs other-stuffs other-stuffs"
+    "footer footer footer footer footer";
+
+
+    grid-template-columns: 1.5fr 2fr 1fr 1fr 1fr1;
+    grid-row: auto;
+    gap: 5px;
+    padding: 10px;
+}
+.item{
+    padding: 10px;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    
+}
+.site-title {
+    grid-area: site-title;
+    background: yellow;
+}
+
+.nav:nth-child(2) { grid-area: nav1; background: pink;}
+.nav:nth-child(3) { grid-area: nav2; background: pink;}
+.nav:nth-child(4) { grid-area: nav3; background: pink;}
+
+.post-title {
+    grid-area: post-title;
+    background: lightblue;
+}
+.post-meta {
+    grid-area: post-meta;
+    background: lightgreen;
+}
+.main-content {
+    grid-area: main-content;
+    background: lightgray;
+}
+.main-content-image {
+    grid-area: main-content-image;
+    background: yellow;
+}
+.side-bar {
+    grid-area: side-bar;
+    background: orange;
+}
+.ads {
+    grid-area: ads;
+    background: green;
+    color: white;
+}
+
+.footer {
+    grid-area: footer;
+    background: brown;
+    color: white;
+}
+.other-stuffs {
+    grid-area: other-stuffs;
+    background: purple;
+    color: white;
+}
+@media (max-width: 768px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
+        
+            .site-title,
+            .post-title,
+            .post-meta,
+            .main-content,
+            .main-content-image,
+            .side-bar,
+            .ads,
+            .other-stuffs,
+            .footer {
+                width: 100%;
+            }
+            .nav {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around;
+            }
+            .nav > div {
+                flex: 1 0 50%;
+            }
+    }
+ @media (max-width: 480) {
+    .side-bar {
+        display: none;
+    }
+    .ads{
+        display: none;
+    }
+ }
